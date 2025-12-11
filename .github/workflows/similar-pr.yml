@@ -1,0 +1,13 @@
+name: Similar PR Check
+
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+
+jobs:
+  call-shared-similar-pr:
+    uses: gbaranenko-dolphin/check-dbl-pr/.github/workflows/similar-pr.yml@main
+    with:
+      days_lookback: 30
+    secrets: inherit
+
