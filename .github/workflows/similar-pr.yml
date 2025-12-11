@@ -4,10 +4,14 @@ on:
   pull_request:
     types: [opened, ready_for_review]
 
+# здесь задаём права, которые будут доступны и reusable workflow
+permissions:
+  contents: read
+  pull-requests: read
+
 jobs:
-  call-shared-similar-pr:
+  similar-pr-check:
     uses: gbaranenko-dolphin/check-dbl-pr/.github/workflows/similar-pr.yml@main
     with:
       days_lookback: 30
     secrets: inherit
-
